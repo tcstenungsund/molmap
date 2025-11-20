@@ -43,3 +43,12 @@ docReady(() => {
 
   html5_qrcode_scanner.render(onScanSuccess, onScanError);
 });
+
+if (navigator.serviceWorker) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch((error) => {
+      // biome-ignore lint/suspicious/noConsole: We only want to log critical failures
+      console.error("SW registration failed:", error);
+    });
+  });
+}
