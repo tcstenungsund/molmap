@@ -1,5 +1,0 @@
-node_modules
-sw.js
-workbox-config.js
-workbox-*.js
-*.map

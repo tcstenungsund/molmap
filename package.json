@@ -8,8 +8,7 @@
     "prepare": "husky",
     "lint": "biome lint .",
     "format": "biome format .",
-    "check": "biome check --no-errors-on-unmatched --files-ignore-unknown=true .",
-    "build-sw": "workbox generateSW workbox-config.js"
+    "check": "biome check --no-errors-on-unmatched --files-ignore-unknown=true ."
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,6 @@
   "homepage": "https://github.com/tcstenungsund/molmap#readme",
   "devDependencies": {
     "@biomejs/biome": "2.3.6",
-    "husky": "^9.1.7",
-    "workbox-cli": "^7.3.0"
+    "husky": "^9.1.7"
   }
 }
