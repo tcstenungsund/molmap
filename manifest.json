@@ -1,0 +1,17 @@
+{
+  "name": "molmap",
+  "short_name": "molmap",
+  "theme_color": "#e2eed9",
+  "background_color": "#ffffff",
+  "display": "browser",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/assets/icons/molen_favicon.png",
+      "sizes": "67x67",
+      "type": "image/png",
+      "purpose": "logo"
+    }
+  ]
+}
