@@ -6,7 +6,15 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!node_modules",
+      "!sw.js",
+      "!workbox-config.js",
+      "!workbox-*.js",
+      "!*.map"
+    ]
   },
   "formatter": {
     "enabled": true,
