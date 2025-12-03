@@ -1,15 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <link href="style.css" rel="stylesheet">
-    <link rel="manifest" href="./manifest.json">
+    <title>QR Skanner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;600;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="qr-reader" style="width:600px"></div>
-    <div id="qr-reader-results"></div>
+    <div id="qr-scanner-app">
+      <button id="qr-fab-button" aria-label="Skanna QR-kod">
+        <div class="icon-container">
+          <svg
+            class="icon-qr"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+            <rect x="7" y="7" width="10" height="10" rx="1"></rect>
+          </svg>
+          <svg
+            class="icon-close"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </div>
+      </button>
+
+      <div id="qr-overlay">
+        <div id="qr-reader-container">
+          <div id="qr-reader"></div>
+        </div>
+
+        <p class="instruction-text">Rikta kameran mot QR-koden</p>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script src="script.js"></script>
   </body>

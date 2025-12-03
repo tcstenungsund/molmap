@@ -1,54 +1,78 @@
-function docReady(fn) {
-  // see if DOM is already available
-  if (
-    document.readyState === "complete" ||
-    document.readyState === "interactive"
-  ) {
-    // call on next available tick
-    setTimeout(fn, 1);
-  } else {
-    // biome-ignore lint/security/noSecrets: false positive, DOM event name
-    document.addEventListener("DOMContentLoaded", fn);
-  }
-}
+// biome-ignore lint/security/noSecrets: "DOMContentLoaded" is identified as a secret false positive
+document.addEventListener("DOMContentLoaded", () => {
+  const fab = document.getElementById("qr-fab-button");
+  const overlay = document.getElementById("qr-overlay");
 
-docReady(() => {
-  const result_container = document.getElementById("qr-reader-results");
-  let last_result,
-    count_results = 0;
+  let scanner = null;
+  let is_scanner_active = false;
 
-  const html5_qrcode_scanner = new Html5QrcodeScanner("qr-reader", {
+  const config = {
     fps: 10,
-    qrbox: 250,
-  });
+    qrbox: { width: 250, height: 250 },
+    aspectRatio: 1.0,
+    supportedScanTypes: [0],
+  };
 
-  function onScanSuccess(decoded_text, _decoded_result) {
-    if (decoded_text !== last_result) {
-      ++count_results;
-      last_result = decoded_text;
-      // console.log(`Scan result = ${decoded_text}`, decoded_result);
+  function stopScanner() {
+    is_scanner_active = false;
 
-      result_container.innerHTML += `<div>[${count_results}] - ${decoded_text}</div>`;
+    overlay.classList.remove("is-active");
+    fab.classList.remove("is-open");
 
-      // Optional: To close the QR code scannign after the result is found
-      html5_qrcode_scanner.clear();
+    if (scanner) {
+      scanner.clear().catch(() => {});
     }
   }
 
-  // Optional callback for error, can be ignored.
-  function onScanError(_qr_code_error) {
-    // This callback would be called in case of qr code scan error or setup error.
-    // You can avoid this callback completely, as it can be very verbose in nature.
+  function isValidHttpUrl(string) {
+    let url;
+    try {
+      url = new URL(string);
+    } catch (_) {
+      return false;
+    }
+    return url.protocol === "http:" || url.protocol === "https:";
   }
 
-  html5_qrcode_scanner.render(onScanSuccess, onScanError);
-});
+  function onScanSuccess(decoded_text, _decoded_result) {
+    scanner.pause();
 
-if (navigator.serviceWorker) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/sw.js").catch((error) => {
-      // biome-ignore lint/suspicious/noConsole: We only want to log critical failures
-      console.error("SW registration failed:", error);
-    });
-  });
-}
+    if (isValidHttpUrl(decoded_text)) {
+      window.location.href = decoded_text;
+    } else {
+      alert(`Scanned content:\n${decoded_text}`);
+      scanner.resume();
+    }
+  }
+
+  function onScanFailure(_error) {
+    // Ignore frame errors
+  }
+
+  function startScanner() {
+    is_scanner_active = true;
+
+    overlay.classList.add("is-active");
+    fab.classList.add("is-open");
+
+    if (!scanner) {
+      scanner = new Html5QrcodeScanner(
+        "qr-reader",
+        config,
+        /* verbose= */ false,
+      );
+    }
+
+    scanner.render(onScanSuccess, onScanFailure);
+  }
+
+  function toggleScanner() {
+    if (is_scanner_active) {
+      stopScanner();
+    } else {
+      startScanner();
+    }
+  }
+
+  fab.addEventListener("click", toggleScanner);
+});
