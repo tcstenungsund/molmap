@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <h1 id="name"></h1>
-    <img id="image">
-    <p id="description"></p>
+    <div id="company-result"></div>
     <div id="qr-scanner-app">
       <button id="qr-fab-button" aria-label="Skanna QR-kod">
         <div class="icon-container">
@@ -60,8 +58,8 @@
       </div>
     </div>
     <!--load javascripts-->
+    <script src="qr-reader.js"></script>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <script src="script.js"></script>
-    <script src="dataLoader.js"></script>
   </body>
 </html>
