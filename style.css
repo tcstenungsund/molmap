@@ -124,71 +124,40 @@
 #qr-reader-container {
   width: 90%;
   max-width: 400px;
+  /* Force a perfect square aspect ratio for uniformity */
+  aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
-  background: transparent;
+  background: #000; /* Black background to prevent white flashes/bars */
   position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+/* --- LIBRARY OVERRIDES FOR UNIFORMITY --- */
 
 #qr-reader {
-  /* biome-ignore lint: Override library inline styles */
+  /* biome-ignore lint/complexity/noImportantStyles: Override library inline styles */
   border: none !important;
-}
-
-#qr-reader__dashboard_section_csr span,
-#qr-reader__header_message,
-#qr-reader img[alt="Info icon"],
-#qr-reader img[src*="info"] {
-  /* biome-ignore lint: Override library inline styles */
-  display: none !important;
+  /* biome-ignore lint/complexity/noImportantStyles: Override library inline styles */
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
 }
 
 #qr-reader video {
-  border-radius: 20px;
-  object-fit: cover;
   width: 100%;
-  height: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  /* This ensures the video fills the square box completely */
+  object-fit: cover;
+  border-radius: 20px;
 }
 
-#qr-reader__dashboard_section_csr button {
-  /* biome-ignore lint: Override library inline styles */
-  background-color: var(--color-zanah) !important;
-  /* biome-ignore lint: Override library inline styles */
-  color: var(--color-cruose) !important;
-  /* biome-ignore lint: Override library inline styles */
-  border: none !important;
-  /* biome-ignore lint: Override library inline styles */
-  padding: 15px 30px !important;
-  /* biome-ignore lint: Override library inline styles */
-  border-radius: 50px !important;
-  /* biome-ignore lint: Override library inline styles */
-  font-size: 1rem !important;
-  /* biome-ignore lint: Override library inline styles */
-  font-weight: 600 !important;
-  /* biome-ignore lint: Override library inline styles */
-  cursor: pointer !important;
-  /* biome-ignore lint: Override library inline styles */
-  margin: 0 auto !important;
-  /* biome-ignore lint: Override library inline styles */
-  display: inline-block !important;
-  /* biome-ignore lint: Override library inline styles */
-  width: auto !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  /* biome-ignore lint: Override library inline styles */
-  font-family: "Josefin Sans", sans-serif !important;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-#qr-reader__dashboard_section_csr {
-  /* biome-ignore lint: Override library inline styles */
-  text-align: center !important;
-  /* biome-ignore lint: Override library inline styles */
-  padding: 20px 0 !important;
-}
-
+/* Hide library status elements */
+#qr-reader__dashboard_section_csr,
 #qr-reader__status_span {
-  /* biome-ignore lint: Override library inline styles */
+  /* biome-ignore lint/complexity/noImportantStyles: Hide library elements */
   display: none !important;
 }

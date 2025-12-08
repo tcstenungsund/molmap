@@ -3,13 +3,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const fab = document.getElementById("qr-fab-button");
   const overlay = document.getElementById("qr-overlay");
 
+  // We use Html5Qrcode (the class) instead of the Scanner widget
+  // to get full control over the UI and remove the broken white bars.
   let scanner = null;
   let is_scanner_active = false;
 
   const config = {
     fps: 10,
-    qrbox: { width: 250, height: 250 },
-    aspectRatio: 1.0,
+    // Determines the scanning box size relative to the container
+    qrbox: (viewfinder_width, viewfinder_height) => {
+      const min_edge = Math.min(viewfinder_width, viewfinder_height);
+      return {
+        width: Math.floor(min_edge * 0.7),
+        height: Math.floor(min_edge * 0.7),
+      };
+    },
+    // We removed aspectRatio: 1.0 here.
+    // We let CSS handle the square container shape, and let the
+    // video fill it naturally to avoid white gaps.
     supportedScanTypes: [0],
   };
 
@@ -20,7 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
     fab.classList.remove("is-open");
 
     if (scanner) {
-      scanner.clear().catch(() => {});
+      scanner
+        .stop()
+        .then(() => {
+          scanner.clear();
+        })
+        .catch((_err) => {
+          // Ignore errors on stop
+        });
     }
   }
 
@@ -35,12 +53,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function onScanSuccess(decoded_text, _decoded_result) {
+    // Pause scanning on success
     scanner.pause();
 
     if (isValidHttpUrl(decoded_text)) {
       window.location.href = decoded_text;
     } else {
-      alert(`Scanned content:\n${decoded_text}`);
+      alert(`Skannat innehåll:\n${decoded_text}`);
       scanner.resume();
     }
   }
@@ -56,14 +75,22 @@ document.addEventListener("DOMContentLoaded", () => {
     fab.classList.add("is-open");
 
     if (!scanner) {
-      scanner = new Html5QrcodeScanner(
-        "qr-reader",
-        config,
-        /* verbose= */ false,
-      );
+      // @ts-ignore
+      scanner = new Html5Qrcode("qr-reader");
     }
 
-    scanner.render(onScanSuccess, onScanFailure);
+    // "facingMode: environment" prefers the back camera
+    scanner
+      .start(
+        { facingMode: "environment" },
+        config,
+        onScanSuccess,
+        onScanFailure,
+      )
+      .catch((_err) => {
+        alert("Kunde inte starta kameran. Kontrollera behörigheter.");
+        stopScanner();
+      });
   }
 
   function toggleScanner() {
