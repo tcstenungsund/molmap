@@ -37,7 +37,6 @@ async function lookupCompany(company_id) {
   result_div.innerHTML = "<p>Loading company data...</p>";
 
   try {
-    console.log("🔥 company_id:", company_id, typeof company_id);
     const doc_ref = doc(db, "company", company_id);
     const doc_snap = await getDoc(doc_ref);
 
