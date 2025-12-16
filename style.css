@@ -15,9 +15,9 @@
 /* --- 2. OKLCH COLOR PALETTE --- */
 :root {
   /* Brand Colors converted to OKLCH for better rendering.
-     Zanah: #e2eed9 -> Light Green
-     Pizzaz: #f29600 -> Orange
-     Cruose: #004519 -> Dark Green
+    Zanah: #e2eed9 -> Light Green
+    Pizzaz: #f29600 -> Orange
+    Cruose: #004519 -> Dark Green
   */
   --color-zanah: oklch(91.6% 0.086 134.7);
   --color-pizzaz: oklch(73.5% 0.175 64.7);
@@ -26,8 +26,8 @@
   --color-black: oklch(0% 0 0);
 
   /* ACCESSIBILITY FIX:
-     The orange is too light for text. We create a derived color
-     that keeps the Hue (h) but lowers Lightness (l) for contrast.
+    The orange is too light for text. We create a derived color
+    that keeps the Hue (h) but lowers Lightness (l) for contrast.
   */
   --color-pizzaz-text: oklch(55% 0.175 64.7);
 
