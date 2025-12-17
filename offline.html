@@ -6,68 +6,7 @@
     <title>Offline</title>
 
     <link rel="stylesheet" href="./style.css" />
-
-    <style>
-      :root {
-        --offline-bg: var(--bg, #0b0f14);
-        --offline-fg: var(--text, #e8eef7);
-        --offline-card: var(--card, rgba(255,255,255,.06));
-        --offline-border: var(--border, rgba(255,255,255,.14));
-        --offline-muted: var(--muted, rgba(232,238,247,.75));
-        --offline-btn-bg: var(--button-bg, rgba(255,255,255,.10));
-        --offline-btn-fg: var(--button-text, var(--offline-fg));
-      }
-
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        background: var(--offline-bg);
-        color: var(--offline-fg);
-        font-family: inherit;
-      }
-
-      .offline-card {
-        width: min(560px, 100%);
-        background: var(--offline-card);
-        border: 1px solid var(--offline-border);
-        border-radius: 16px;
-        padding: 20px;
-      }
-
-      .offline-title {
-        margin: 0 0 8px;
-        font-size: 1.25rem;
-      }
-
-      .offline-text {
-        margin: 0 0 16px;
-        color: var(--offline-muted);
-        line-height: 1.45;
-      }
-
-      .offline-actions {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      .offline-btn {
-        border: 1px solid var(--offline-border);
-        background: var(--offline-btn-bg);
-        color: var(--offline-btn-fg);
-        padding: 10px 12px;
-        border-radius: 12px;
-        cursor: pointer;
-      }
-
-      .offline-btn:focus-visible {
-        outline: 2px solid currentColor;
-        outline-offset: 2px;
-      }
-    </style>
+    <link rel="stylesheet" href="./offline.css" />
   </head>
 
   <body>
