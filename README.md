@@ -35,7 +35,7 @@
   <h3 align="center">Molmap</h3>
 
   <p align="center">
-    QR-code reader for Molekylverskan from tc-stenungsund!
+    QR-code reader for Molekylverskan from TC-Stenungsund!
     <br />
     <a href="https://tcstenungsund.github.io/molmap/"><strong>Check out the schedule! »</strong></a>
     <br />
@@ -58,8 +58,6 @@
         </ul>
     </li>
     <li><a href="#built-with">Built With</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -107,56 +105,23 @@ This section should list any major frameworks/libraries used to bootstrap your p
 - HTML
 - CSS
 - Markdown
-- [TypeScript](https://www.typescriptlang.org/)
 - [Github Pages](https://pages.github.com/)
-- [Lit](https://lit.dev/)
-- [Marked](https://marked.js.org/)
-- [Rollup](https://rollupjs.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply [open an issue](https://github.com/klovaaxel/schedule/issues) with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- CONTACT -->
-
-## Contact
-
-Axel (Developer) - [@klovaaxel1000](https://twitter.com/klovaaxel1000)
-
-Kenneth (TC Stenungsund maintainer) - [@alltinomit](https://twitter.com/alltinomit)
-
-Project Link: [https://github.com/klovaaxel/schedule](https://github.com/klovaaxel/schedule)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/klovaaxel/schedule.svg?style=for-the-badge
-[contributors-url]: https://github.com/klovaaxel/schedule/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/klovaaxel/schedule.svg?style=for-the-badge
-[forks-url]: https://github.com/klovaaxel/schedule/network/members
-[stars-shield]: https://img.shields.io/github/stars/klovaaxel/schedule.svg?style=for-the-badge
-[stars-url]: https://github.com/klovaaxel/schedule/stargazers
-[issues-shield]: https://img.shields.io/github/issues/klovaaxel/schedule.svg?style=for-the-badge
-[issues-url]: https://github.com/klovaaxel/schedule/issues
-[license-shield]: https://img.shields.io/github/license/klovaaxel/schedule.svg?style=for-the-badge
-[license-url]: https://github.com/klovaaxel/schedule/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/klovaaxel
+[contributors-shield]: https://img.shields.io/github/contributors/tcstenungsund/molmap.svg?style=for-the-badge
+[contributors-url]: https://github.com/tcstenungsund/molmap/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/tcstenungsund/molmap.svg?style=for-the-badge
+[forks-url]: https://github.com/tcstenungsund/molmap/network/members
+[stars-shield]: https://img.shields.io/github/stars/tcstenungsund/molmap.svg?style=for-the-badge
+[stars-url]: https://github.com/tcstenungsund/molmap/stargazers
+[issues-shield]: https://img.shields.io/github/issues/tcstenungsund/molmap.svg?style=for-the-badge
+[issues-url]: https://github.com/tcstenungsund/molmap/issues
+[license-shield]: https://img.shields.io/github/license/tcstenungsund/molmap.svg?style=for-the-badge
+[license-url]: https://github.com/tcstenungsund/molmap/blob/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
