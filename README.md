@@ -25,11 +25,11 @@
 <br />
 <div align="center">
   <a href="https://app.tcstenungsund.se/">
-    <img src="./assets/icons/tc-logo.svg" alt="TC-Stenungsund logo" width=100 height=100>
+    <img src="./assets/icons/tc-logo.svg" alt="TC-Stenungsund logo" width="100" height="100">
   </a>
 
   <a href="https://www.molekylverkstan.se/">
-    <img src="./assets/icons/molen_logo.png" alt="Molekylverkstan logo" width=300 style="display:block;">
+    <img src="./assets/icons/molen_logo.png" alt="Molekylverkstan logo" width="1000">
   </a>
 
   <h3 align="center">Molmap</h3>
