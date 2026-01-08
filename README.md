@@ -37,7 +37,7 @@
   <p align="center">
     QR-code reader for Molekylverskan from TC-Stenungsund!
     <br />
-    <a href="https://tcstenungsund.github.io/molmap/"><strong>Check out the schedule! »</strong></a>
+    <a href="https://tcstenungsund.github.io/molmap/"><strong>Check out the QR-code reader! »</strong></a>
     <br />
     <br />
     <a href="https://github.com/tcstenungsund/molmap/issues">Report Bug</a>
