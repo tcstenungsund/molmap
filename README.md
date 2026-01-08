@@ -35,14 +35,14 @@
   <h3 align="center">Molmap</h3>
 
   <p align="center">
-    QR-code raeder for Molekylverskan from tc-stenungsund!
+    QR-code reader for Molekylverskan from tc-stenungsund!
     <br />
-    <a href="https://tcstenungsund.github.io/schedule/"><strong>Check out the schedule! »</strong></a>
+    <a href="https://tcstenungsund.github.io/molmap/"><strong>Check out the schedule! »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/klovaaxel/schedule/issues">Report Bug</a>
+    <a href="https://github.com/tcstenungsund/molmap/issues">Report Bug</a>
     ·
-    <a href="https://github.com/klovaaxel/schedule/issues">Request Feature</a>
+    <a href="https://github.com/tcstenungsund/molmap/issues">Request Feature</a>
   </p>
 </div>
 
