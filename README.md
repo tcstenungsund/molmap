@@ -53,8 +53,7 @@
     <li>
         <a href="#usage">Usage</a>
         <ul>
-            <li><a href="#students-and-parents">Students And Parents</a></li>
-            <li><a href="#Teachers">Teachers</a></li>
+            <li><a href="#navigating-to-the-schedule"></a>Navigating to the schedule</li>
         </ul>
     </li>
     <li><a href="#built-with">Built With</a></li>
@@ -65,35 +64,9 @@
 
 ## Usage
 
-### Students and Parents
+#### Navigating to the schedule
 
-#### Navigateing to the schedule
-
-To use this schedule simply navigate to https://tcstenungsund.github.io/schedule/.
-
-#### Choosing a group of students
-
-If you want to see a specific groups schedule you can use the dropdown menu above the scheules to select a group.
-
-#### Choosing a week
-
-If you want to see a specific week in the schedule you can use the dropdown menu above the schedules to select a specific week of the school year
-
-### Teachers
-
-#### Editing the schedule
-
-in the schedule you want to edit click on the blue pen at top of the schedule right of the title of the course.
-
-Once on the editing page you can make your changes, either by editing the schedule in raw markdown or by installing the markdowneditor plugin and editing in formatted text.
-
-When you are done editing the schedule you can go to the bottom of the page and if you want to leave a comment about the edit you made, like _"added assignment for week 45"_ or you can leave it blank, then when you are happy with the changes and the comments you can press the commit button to save your changes and make them public on the schedule.    
-
-To empty local cache, use following in console. 
-
-    window.sessionStorage.clear() 
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+To use this QR-code reader simply navigate to https://tcstenungsund.github.io/molmap/.
 
 <!-- BUILT WITH -->
 
