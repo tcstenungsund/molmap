@@ -30,11 +30,12 @@
 
   <a href="https://www.molekylverkstan.se/">
     <img src="assest/molen_logo.png" alt="Logo">
+  </a>
 
   <h3 align="center">Molmap</h3>
 
   <p align="center">
-    An awesome scheduling app  for tc-stenungsund!
+    QR-code raeder for Molekylverskan from tc-stenungsund!
     <br />
     <a href="https://tcstenungsund.github.io/schedule/"><strong>Check out the schedule! »</strong></a>
     <br />
