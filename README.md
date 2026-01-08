@@ -25,10 +25,13 @@
 <br />
 <div align="center">
   <a href="https://app.tcstenungsund.se/">
-    <img src="resources/images/tc-logo.svg" alt="Logo" width="80" height="80">
+    <img src="assets/tc-logo.svg" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Schedule</h3>
+  <a href="https://www.molekylverkstan.se/">
+    <img src="assest/molen_logo.png" alt="Logo">
+
+  <h3 align="center">Molmap</h3>
 
   <p align="center">
     An awesome scheduling app  for tc-stenungsund!
