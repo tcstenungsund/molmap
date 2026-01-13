@@ -1,9 +1,9 @@
 #qr-scanner-app {
-  --color-zanah: #e2eed9;
-  --color-pizzaz: #f29600;
-  --color-cruose: #004519;
-  --color-black: #000000;
-  --color-white: #ffffff;
+  --color-zanah: oklch(91.6% 0.086 134.7);
+  --color-pizzaz: oklch(73.5% 0.175 64.7);
+  --color-cruose: oklch(0.5735 0.1702 148.6);
+  --color-white: oklch(100% 0 0);
+  --color-black: oklch(0% 0 0);
 
   --app-primary: var(--color-pizzaz);
   --app-secondary: var(--color-cruose);
@@ -16,7 +16,7 @@
 
 #qr-fab-button {
   position: fixed;
-  bottom: 30px;
+  bottom: 160px;
   right: 30px;
   width: var(--fab-size);
   height: var(--fab-size);
