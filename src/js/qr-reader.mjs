@@ -4,20 +4,15 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 import { db } from "./firebase.mjs";
 
-// Company Data Loader - Automatically loads company based on URL parameter
-
-// Check URL parameter when page loads
 // biome-ignore lint/security/noSecrets: "DOMContentLoaded" is identified as a secret false positive
 window.addEventListener("DOMContentLoaded", () => {
   checkUrlAndLoadCompany();
 });
 
-// Also check when URL changes (for single-page apps)
 window.addEventListener("popstate", () => {
   checkUrlAndLoadCompany();
 });
 
-// Function to check URL and load company data
 function checkUrlAndLoadCompany() {
   const url_params = new URLSearchParams(window.location.search);
   const company_id = url_params.get("id");
@@ -25,13 +20,12 @@ function checkUrlAndLoadCompany() {
   if (company_id) {
     lookupCompany(company_id);
   } else {
-    // No ID in URL, show default message
     const result_div = document.getElementById("company-result");
-    result_div.innerHTML = "<p>Scan a QR code to view company information.</p>";
+    result_div.innerHTML =
+      "<p>Scan a QR code to view company information by pressing the button located in the bottom right corner of your screen.</p>";
   }
 }
 
-// Main function to lookup and display company
 async function lookupCompany(company_id) {
   const result_div = document.getElementById("company-result");
   result_div.innerHTML = "<p>Loading company data...</p>";
@@ -63,7 +57,6 @@ async function lookupCompany(company_id) {
   }
 }
 
-// Function to display company information on the page
 function displayCompany(company) {
   const result_div = document.getElementById("company-result");
 
