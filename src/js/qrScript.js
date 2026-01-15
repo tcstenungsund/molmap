@@ -21,6 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function stopScanner() {
     is_scanner_active = false;
 
+    // Remove the body class so the footer goes back to normal z-index
+    document.body.classList.remove("qr-active");
+
     overlay.classList.remove("is-active");
     fab.classList.remove("is-open");
 
@@ -60,6 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function startScanner() {
     is_scanner_active = true;
 
+    // Add class to body to elevate footer z-index
+    document.body.classList.add("qr-active");
+
     overlay.classList.add("is-active");
     fab.classList.add("is-open");
 
@@ -68,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scanner = new Html5Qrcode("qr-reader");
     }
 
-    // "facingMode: environment" prefers the back camera
     scanner
       .start(
         { facingMode: "environment" },
@@ -77,7 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
         onScanFailure,
       )
       .catch((_err) => {
-        alert("Could not open camera. Please check permissions.");
+        alert(
+          "Could not open camera. Please check permissions or use a secure (HTTPS) connection.",
+        );
         stopScanner();
       });
   }
@@ -90,5 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Toggle via Button
   fab.addEventListener("click", toggleScanner);
+
+  // Close via Overlay Click
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      stopScanner();
+    }
+  });
 });

@@ -21,8 +21,9 @@ function checkUrlAndLoadCompany() {
     lookupCompany(company_id);
   } else {
     const result_div = document.getElementById("company-result");
+    // UPDATED TEXT: Refers to "footer" instead of "bottom right"
     result_div.innerHTML =
-      "<p>Scan a QR code to view company information by pressing the button located in the bottom right corner of your screen.</p>";
+      "<p>Scan a QR code to view company information by pressing the button located in the footer.</p>";
   }
 }
 

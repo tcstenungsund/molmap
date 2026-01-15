@@ -1,25 +1,70 @@
+:root {
+  --color-zanah: oklch(91.6% 0.086 134.7);
+  --color-pizzaz: oklch(73.5% 0.175 64.7);
+  --color-cruose: oklch(0.5735 0.1702 148.6);
+  --color-white: oklch(100% 0 0);
+  --color-black: oklch(0% 0 0);
+
+  --color-pizzaz-text: oklch(55% 0.175 64.7);
+
+  --bg-page: var(--color-zanah);
+  --bg-card: var(--color-white);
+  --text-main: var(--color-cruose);
+  --text-body: oklch(20% 0 0);
+  --shadow-color: oklch(32.8% 0.106 148.6 / 10%);
+}
+
+body {
+  font-family: "Josefin Sans", system-ui, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  margin: 0;
+  padding: 0;
+
+  /* LAYOUT FIX: Flex column ensures footer stays at bottom */
+  /* TODO: MAKE FOOTER NOT SCROLLABLE */
+  /* TODO: MAKE FOOTER NOT SCROLLABLE */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* New wrapper to handle content spacing and pushing footer down */
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  width: 100%;
+}
+
 .site-footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  /* Reverted to relative flow, no fixed positioning */
   width: 100%;
   background-color: var(--color-cruose);
   color: white;
-  padding: 20px 0;
+  padding: 1rem 0;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
 }
 
 .footer-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-icon {
-  width: 90px; /* Set the width of your images */
-  height: auto; /* Maintain aspect ratio */
-  transition: transform 0.2s ease; /* Smooth animation for hover */
+  width: 90px;
+  height: auto;
+  transition: transform 0.2s ease;
 }
 
 .footer-icon:hover {
@@ -37,46 +82,7 @@
   z-index: 1;
 }
 
-:root {
-  /*
-     Zanah: #e2eed9 -> Light Green
-     Pizzaz: #f29600 -> Orange
-     Cruose: #004519 -> Dark Green
-  */
-  --color-zanah: oklch(91.6% 0.086 134.7);
-  --color-pizzaz: oklch(73.5% 0.175 64.7);
-  --color-cruose: oklch(0.5735 0.1702 148.6);
-  --color-white: oklch(100% 0 0);
-  --color-black: oklch(0% 0 0);
-
-  /* ACCESSIBILITY FIX:
-     The orange is too light for text. We create a derived color
-     that keeps the Hue (h) but lowers Lightness (l) for contrast.
-  */
-  --color-pizzaz-text: oklch(55% 0.175 64.7);
-
-  --bg-page: var(--color-zanah);
-  --bg-card: var(--color-white);
-  --text-main: var(--color-cruose);
-  --text-body: oklch(20% 0 0);
-  --shadow-color: oklch(32.8% 0.106 148.6 / 10%);
-}
-
-body {
-  font-family: "Josefin Sans", system-ui, sans-serif;
-  background-color: var(--bg-page);
-  color: var(--text-body);
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
+/* Card Styles */
 .company-card {
   background-color: var(--bg-card);
   border-radius: 24px;
@@ -170,7 +176,6 @@ body {
     background-color 0.2s ease,
     color 0.2s ease;
   width: fit-content;
-
   border-radius: 2px;
 }
 
@@ -194,15 +199,15 @@ body {
 }
 
 .error {
-  background-color: oklch(97% 0.02 14); /* Very light red */
-  border: 1px solid oklch(85% 0.15 20); /* Red border */
+  background-color: oklch(97% 0.02 14);
+  border: 1px solid oklch(85% 0.15 20);
   border-radius: 16px;
   padding: 30px;
   text-align: center;
 }
 
 .error h3 {
-  color: oklch(45% 0.2 20); /* Dark Red */
+  color: oklch(45% 0.2 20);
   font-size: 1.5rem;
   margin-top: 0;
 }
@@ -228,7 +233,6 @@ body {
   }
 }
 
-/* When the card container is smaller than 450px, switch layout */
 @container card (max-width: 450px) {
   .company-card {
     grid-template-columns: 1fr;
@@ -240,6 +244,8 @@ body {
       "details";
     text-align: center;
     gap: 16px;
+    /* REDUCED PADDING: Optimized for mobile screens */
+    padding: 24px;
   }
 
   .company-logo {
@@ -252,7 +258,6 @@ body {
   }
 }
 
-/* Accessibility: Turn off animations if user requests */
 @media (prefers-reduced-motion: reduce) {
   .company-card,
   #company-result > p {
