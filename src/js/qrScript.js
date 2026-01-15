@@ -3,14 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const fab = document.getElementById("qr-fab-button");
   const overlay = document.getElementById("qr-overlay");
 
-  // We use Html5Qrcode (the class) instead of the Scanner widget
-  // to get full control over the UI and remove the broken white bars.
   let scanner = null;
   let is_scanner_active = false;
 
   const config = {
     fps: 10,
-    // Determines the scanning box size relative to the container
     qrbox: (viewfinder_width, viewfinder_height) => {
       const min_edge = Math.min(viewfinder_width, viewfinder_height);
       return {
@@ -18,14 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
         height: Math.floor(min_edge * 0.7),
       };
     },
-    // We removed aspectRatio: 1.0 here.
-    // We let CSS handle the square container shape, and let the
-    // video fill it naturally to avoid white gaps.
     supportedScanTypes: [0],
   };
 
   function stopScanner() {
     is_scanner_active = false;
+
+    // Remove the body class so the footer goes back to normal z-index
+    document.body.classList.remove("qr-active");
 
     overlay.classList.remove("is-active");
     fab.classList.remove("is-open");
@@ -36,9 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(() => {
           scanner.clear();
         })
-        .catch((_err) => {
-          // Ignore errors on stop
-        });
+        .catch((_err) => {});
     }
   }
 
@@ -53,7 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function onScanSuccess(decoded_text, _decoded_result) {
-    // Pause scanning on success
     scanner.pause();
 
     if (isValidHttpUrl(decoded_text)) {
@@ -64,12 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function onScanFailure(_error) {
-    // Ignore frame errors
-  }
+  function onScanFailure(_error) {}
 
   function startScanner() {
     is_scanner_active = true;
+
+    // Add class to body to elevate footer z-index
+    document.body.classList.add("qr-active");
 
     overlay.classList.add("is-active");
     fab.classList.add("is-open");
@@ -79,7 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scanner = new Html5Qrcode("qr-reader");
     }
 
-    // "facingMode: environment" prefers the back camera
     scanner
       .start(
         { facingMode: "environment" },
@@ -88,7 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
         onScanFailure,
       )
       .catch((_err) => {
-        alert("Kunde inte starta kameran. Kontrollera behörigheter.");
+        alert(
+          "Could not open camera. Please check permissions or use a secure (HTTPS) connection.",
+        );
         stopScanner();
       });
   }
@@ -101,5 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Toggle via Button
   fab.addEventListener("click", toggleScanner);
+
+  // Close via Overlay Click
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) {
+      stopScanner();
+    }
+  });
 });

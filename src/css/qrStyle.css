@@ -1,49 +1,69 @@
+/* Moved variables to :root so they are accessible to the button in the footer */
+:root {
+  --qr-color-zanah: oklch(91.6% 0.086 134.7);
+  --qr-color-pizzaz: oklch(73.5% 0.175 64.7);
+  --qr-color-cruose: oklch(0.5735 0.1702 148.6);
+  --qr-color-white: oklch(100% 0 0);
+  --qr-color-black: oklch(0% 0 0);
+
+  --app-primary: var(--qr-color-pizzaz);
+  --app-secondary: var(--qr-color-cruose);
+  --app-text: var(--qr-color-white);
+  --app-button-text: var(--qr-color-cruose);
+
+  /* Button Size */
+  --fab-size: 85px;
+}
+
 #qr-scanner-app {
-  --color-zanah: #e2eed9;
-  --color-pizzaz: #f29600;
-  --color-cruose: #004519;
-  --color-black: #000000;
-  --color-white: #ffffff;
-
-  --app-primary: var(--color-pizzaz);
-  --app-secondary: var(--color-cruose);
-  --app-text: var(--color-white);
-  --app-button-text: var(--color-cruose);
-
-  --fab-size: 70px;
   font-family: "Josefin Sans", sans-serif;
 }
 
+/* --- CRITICAL FIX: ELEVATE FOOTER --- */
+/* When the 'qr-active' class is on body, we lift the footer above the overlay */
+body.qr-active .site-footer {
+  position: relative; /* Ensure z-index applies */
+  z-index: 10001;
+}
+
 #qr-fab-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
+  position: relative;
   width: var(--fab-size);
   height: var(--fab-size);
   border-radius: 50%;
   background-color: var(--app-primary);
-  color: var(--color-black);
+  color: var(--qr-color-black);
   border: none;
   box-shadow: 0 8px 20px rgba(242, 150, 0, 0.4);
   cursor: pointer;
-  z-index: 10001;
+  z-index: 101;
   transition:
-    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
-    background-color 0.3s;
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
   -webkit-tap-highlight-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
+/* Hover Animation */
+#qr-fab-button:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 15px 30px rgba(242, 150, 0, 0.6);
+}
+
+/* Active/Click State */
 #qr-fab-button:active {
-  transform: scale(0.9);
+  transform: scale(0.95) translateY(0);
+  box-shadow: 0 4px 10px rgba(242, 150, 0, 0.3);
 }
 
 #qr-fab-button .icon-container {
   position: relative;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 }
 
 #qr-fab-button svg {
@@ -65,11 +85,20 @@
   transform: rotate(-90deg) scale(0.5);
 }
 
+/* --- STATE: OPEN --- */
 #qr-fab-button.is-open {
-  background-color: var(--color-zanah);
-  color: var(--color-cruose);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: var(--qr-color-zanah);
+  color: var(--qr-color-cruose);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  /* z-index here is relative to footer, so we rely on footer elevation now */
 }
+
+#qr-fab-button.is-open:hover {
+  background-color: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05) rotate(0deg);
+}
+
 #qr-fab-button.is-open .icon-qr {
   opacity: 0;
   transform: rotate(90deg) scale(0.5);
@@ -79,6 +108,7 @@
   transform: rotate(0deg) scale(1);
 }
 
+/* --- Overlay --- */
 #qr-overlay {
   position: fixed;
   top: 0;
@@ -88,7 +118,10 @@
   background-color: rgba(0, 69, 25, 0.95);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+
+  /* Overlay is 10000. Footer becomes 10001 when active. */
   z-index: 10000;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -109,34 +142,34 @@
   visibility: visible;
   pointer-events: auto;
   transform: scale(1);
+  cursor: pointer;
 }
 
 .instruction-text {
-  color: var(--color-zanah);
+  color: var(--qr-color-zanah);
   margin-top: 25px;
   font-weight: 300;
   font-size: 1.2rem;
   text-align: center;
   padding: 0 20px;
   letter-spacing: 0.5px;
+  pointer-events: none;
 }
 
 #qr-reader-container {
   width: 90%;
   max-width: 400px;
-  /* Force a perfect square aspect ratio for uniformity */
   aspect-ratio: 1;
   border-radius: 20px;
   overflow: hidden;
-  background: #000; /* Black background to prevent white flashes/bars */
+  background: #000;
   position: relative;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
 }
-
-/* --- LIBRARY OVERRIDES FOR UNIFORMITY --- */
 
 #qr-reader {
   /* biome-ignore lint/complexity/noImportantStyles: Override library inline styles */
@@ -150,12 +183,10 @@
 #qr-reader video {
   width: 100%;
   height: 100%;
-  /* This ensures the video fills the square box completely */
   object-fit: cover;
   border-radius: 20px;
 }
 
-/* Hide library status elements */
 #qr-reader__dashboard_section_csr,
 #qr-reader__status_span {
   /* biome-ignore lint/complexity/noImportantStyles: Hide library elements */

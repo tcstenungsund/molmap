@@ -12,57 +12,91 @@
       rel="stylesheet"
     >
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="qrStyle.css">
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="src/css/qrStyle.css">
   </head>
   <body>
-    <div id="company-result"></div>
-    <div id="qr-scanner-app">
-      <button id="qr-fab-button" aria-label="Skanna QR-kod">
-        <div class="icon-container">
-          <svg
-            class="icon-qr"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-            <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-            <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-            <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
-            <rect x="7" y="7" width="10" height="10" rx="1"></rect>
-          </svg>
-          <svg
-            class="icon-close"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-          </svg>
-        </div>
-      </button>
+    <!-- Main content wrapper to push footer down -->
+    <main>
+      <div id="company-result"></div>
+    </main>
 
+    <div id="qr-scanner-app">
       <div id="qr-overlay">
         <div id="qr-reader-container">
           <div id="qr-reader"></div>
         </div>
-
         <p class="instruction-text">Rikta kameran mot QR-koden</p>
       </div>
     </div>
-    <!--load javascripts-->
-    <script type="module" src="firebase.mjs"></script>
-    <script type="module" src="qr-reader.mjs"></script>
+
+    <footer class="site-footer">
+      <div class="footer-container">
+        <!-- 
+           FLATTENED STRUCTURE for space-evenly:
+           1. Logo 1
+           2. Logo 2
+           3. Button
+        -->
+        <a href="https://www.molekylverkstan.se/" target="_blank">
+          <img
+            src="src/assets/icons/molen_favicon.png"
+            alt="Molekylverkstan"
+            class="footer-icon"
+          >
+        </a>
+
+        <a
+          href="https://www.stenungsund.se/gymnasiet/nosnasgymnasiet/om-nosnasgymnasiet/vi-ar-ett-teknikcollege"
+          target="_blank"
+        >
+          <img
+            src="src/assets/icons/tc-s_officiell.svg"
+            alt="Teknikcollege"
+            class="footer-icon"
+          >
+        </a>
+
+        <!-- Button placed directly here as the 3rd item -->
+        <button id="qr-fab-button" aria-label="Skanna QR-kod">
+          <div class="icon-container">
+            <svg
+              class="icon-qr"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+              <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+              <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+              <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+              <rect x="7" y="7" width="10" height="10" rx="1"></rect>
+            </svg>
+            <svg
+              class="icon-close"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="src/js/firebase.mjs"></script>
+    <script type="module" src="src/js/qr-reader.mjs"></script>
     <script src="https://unpkg.com/html5-qrcode"></script>
-    <script src="script.js"></script>
-    <script src="qrScript.js"></script>
+    <script src="src/js/script.js"></script>
+    <script src="src/js/qrScript.js"></script>
   </body>
 </html>

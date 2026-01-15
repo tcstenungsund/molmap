@@ -10,9 +10,9 @@
     "includes": [
       "**",
       "!node_modules",
-      "!sw.js",
-      "!workbox-config.js",
-      "!workbox-*.js",
+      "!src/js/sw.js",
+      "!src/js/workbox-config.js",
+      "!src/js/workbox-*.js",
       "!*.map"
     ]
   },
