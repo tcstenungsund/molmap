@@ -171,6 +171,8 @@ body.qr-active .site-footer {
   cursor: default;
 }
 
+/* --- LIBRARY OVERRIDES FOR UNIFORMITY --- */
+
 #qr-reader {
   /* biome-ignore lint/complexity/noImportantStyles: Override library inline styles */
   border: none !important;

@@ -82,9 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
         onScanFailure,
       )
       .catch((_err) => {
-        alert(
-          "Could not open camera. Please check permissions or use a secure (HTTPS) connection.",
-        );
+        alert("Kunde inte starta kameran. Kontrollera behörigheter.");
         stopScanner();
       });
   }
