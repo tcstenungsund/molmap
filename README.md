@@ -13,7 +13,7 @@
   </a>
 
   <a href="https://www.molekylverkstan.se/">
-    <img src="./src/assets/icons/molen_logo.png" alt="Molekylverkstan logo">
+    <img src="./src/assets/icons/molen_logo.svg" alt="Molekylverkstan logo">
   </a>
 
   <h3 align="center">Molmap</h3>
