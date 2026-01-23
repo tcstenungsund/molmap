@@ -23,7 +23,7 @@ function checkUrlAndLoadCompany() {
     const result_div = document.getElementById("company-result");
     // UPDATED TEXT: Refers to "footer" instead of "bottom right"
     result_div.innerHTML =
-      "<p>Scan a QR code to view company information by pressing the button located in the footer.</p>";
+      '<p id="title-text">Scan a QR code to view company information by pressing the button located in the footer.</p>';
   }
 }
 
