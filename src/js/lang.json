@@ -2,11 +2,11 @@
   "lang": {
     "se": {
       "title": "Skanna en QR-kod för att se företagsinformation genom att trycka på knappen längst ner till höger.",
-      "qr-code": "Rikta kameran mot QR-koden"
+      "qrCode": "Rikta kameran mot QR-koden"
     },
     "en": {
       "title": "Scan a QR code to view company information by pressing the button located in the footer.",
-      "qr-code": "Point your camera at the QR code"
+      "qrCode": "Point your camera at the QR code"
     }
   }
 }
