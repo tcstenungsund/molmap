@@ -2,6 +2,7 @@
   --color-zanah: oklch(91.6% 0.086 134.7);
   --color-pizzaz: oklch(73.5% 0.175 64.7);
   --color-cruose: oklch(0.5735 0.1702 148.6);
+  --color-parsley: oklch(0.3838 0.1061 144.06);
   --color-white: oklch(100% 0 0);
   --color-black: oklch(0% 0 0);
 
@@ -9,7 +10,7 @@
 
   --bg-page: var(--color-zanah);
   --bg-card: var(--color-white);
-  --text-main: var(--color-cruose);
+  --text-main: var(--color-parsley);
   --text-body: oklch(20% 0 0);
   --shadow-color: oklch(32.8% 0.106 148.6 / 10%);
 }
