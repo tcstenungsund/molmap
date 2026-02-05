@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="67"
+   height="67"
+   viewBox="0 0 67 67"
+   sodipodi:docname="molen_favicon_border_green.svg"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="6.3301787"
+     inkscape:cx="13.743688"
+     inkscape:cy="35.623007"
+     inkscape:window-width="1906"
+     inkscape:window-height="1024"
+     inkscape:window-x="5"
+     inkscape:window-y="47"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1" />
+  <g
+     inkscape:groupmode="layer"
+     inkscape:label="Image"
+     id="g1">
+    <path
+       id="rect1"
+       style="fill:#0d7d34;stroke:#8aff81;stroke-opacity:1"
+       d="M 37.501467 -7.7676917 L 37.500417 13.324992 A 22.542454 23.213894 77.418225 0 0 36.817768 13.467348 A 22.542454 23.213894 77.418225 0 0 19.071002 40.525927 A 22.542454 23.213894 77.418225 0 0 46.638539 57.46869 A 22.542454 23.213894 77.418225 0 0 64.383825 30.412443 A 22.542454 23.213894 77.418225 0 0 47.14293 13.454202 L 47.143013 -7.7683429 L 37.501467 -7.7676917 z M 38.535754 21.164676 A 14.656474 14.556975 77.418225 0 1 55.935445 32.298059 A 14.656474 14.556975 77.418225 0 1 44.920979 49.773269 A 14.656474 14.556975 77.418225 0 1 27.519381 38.640312 A 14.656474 14.556975 77.418225 0 1 38.535754 21.164676 z "
+       transform="rotate(12.581775)" />
+  </g>
+</svg>

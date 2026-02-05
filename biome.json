@@ -13,7 +13,9 @@
       "!src/js/sw.js",
       "!src/js/workbox-config.js",
       "!src/js/workbox-*.js",
-      "!*.map"
+      "!*.map",
+      "!cypress/*",
+      "!cypress.config.js"
     ]
   },
   "formatter": {
